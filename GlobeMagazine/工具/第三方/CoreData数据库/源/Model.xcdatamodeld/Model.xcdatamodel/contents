@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Xcode 7.0">
+    <entity name="GMChannelItemModel" syncable="YES">
+        <attribute name="category_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="channel_Name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chapt_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chapt_title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="click_count" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="column_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cover_img_big" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cover_img_bigc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cover_img_bmini2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cover_img_mini" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cover_img_smini" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hasAuth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="is_ad" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="issue_id" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="GMColumnItemModel" syncable="YES">
+        <attribute name="channel_Name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chapt_brief" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chapt_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chapt_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chapt_title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="click_count" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="comm_count" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="if_pic" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="issue_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lanmu_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mini_image" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="GMChannelItemModel" positionX="-54" positionY="-9" width="128" height="255"/>
+        <element name="GMColumnItemModel" positionX="-36" positionY="117" width="128" height="225"/>
+    </elements>
+</model>

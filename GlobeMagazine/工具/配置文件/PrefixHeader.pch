@@ -1,0 +1,53 @@
+//
+//  PrefixHeader.pch
+//  GlobeMagazine
+//
+//  Created by 滑现伟 on 16/5/23.
+//  Copyright © 2016年 Demon. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+/*
+ *  pods相关头文件
+ */
+#import "UIViewController+MMDrawerController.h"
+#import "DKNightVersion.h"
+#import "JHRefreshStateHeader.h"
+#import <DKNightVersion/DKNightVersion.h>
+#import "UILabel+JHFont.h"
+#import "UIImageView+WebCache.h"
+
+#import "HXWCoreDataEventManager.h"
+#import "GMChaptInfomationVC.h"
+
+#define IS_IPHONE_6 ([[UIScreen mainScreen] bounds].size.height == 667.0f)
+#define IS_IPHONE_6_PLUS ([[UIScreen mainScreen] bounds].size.height == 736.0f)
+#define fontSize(A,B,C) IS_IPHONE_6_PLUS?A:(IS_IPHONE_6?B:C)
+// 这里设置iPhone6放大的字号数（现在是放大2号，也就是iPhone4s和iPhone5上字体为15时，iPhone6上字号为17）
+#define IPHONE6_INCREMENT 2
+// 这里设置iPhone6Plus放大的字号数（现在是放大3号，也就是iPhone4s和iPhone5上字体为15时，iPhone6上字号为18）
+#define IPHONE6PLUS_INCREMENT 3
+
+
+#ifdef DEBUG
+#   define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define DLog(...)
+#endif
+
+#define screen_Width ([UIScreen mainScreen].bounds.size.width)
+
+#define screen_Height ([UIScreen mainScreen].bounds.size.height)
+
+/*
+ *  16进制颜色宏
+ *
+ *  self.view.backgroundColor = UIColorFromRGB(0x006000);
+ */
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#define image_Back_Mask DKColorPickerWithColors([UIColor clearColor],[UIColor colorWithRed:3/255.0 green:0 blue:0 alpha:0.3],[UIColor clearColor])
+
+#endif /* PrefixHeader_pch */

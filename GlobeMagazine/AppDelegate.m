@@ -7,15 +7,71 @@
 //
 
 #import "AppDelegate.h"
+#import "GMUserRootVC.h"
+#import "GMChannelRootVC.h"
+#import "JHNavigationController.h"
+#import "JHDrawerVisualStateManager.h"
 
 @interface AppDelegate ()
+@property (nonatomic,strong) MMDrawerController * drawerController;
 
 @end
 
 @implementation AppDelegate
+-(BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+    
+    /*
+     *  添加频道根视图
+     */
+    UIViewController *channelRootVC =[[GMChannelRootVC alloc]initWithNibName:nil bundle:nil];
+    UINavigationController *channelRootNavigationVC = [[JHNavigationController alloc]initWithRootViewController:channelRootVC];
+    [channelRootNavigationVC setRestorationIdentifier:@"HLChannelRootVC"];
+    
+    /*
+     *  添加用户根视图
+     */
+    GMUserRootVC *userCenterVC =[[GMUserRootVC alloc] initWithNibName:nil bundle:nil];
+    UINavigationController *userCenterNavigationVC = [[JHNavigationController alloc]initWithRootViewController:userCenterVC];
+    [userCenterNavigationVC setRestorationIdentifier:@"GMUserRootVC"];
+    
+    /*
+     *  添加到抽屉上去
+     */
+    self.drawerController = [[MMDrawerController alloc]initWithCenterViewController:channelRootNavigationVC rightDrawerViewController:userCenterNavigationVC];
+    [self.drawerController setShowsShadow:NO];
+    
+    [self.drawerController setRestorationIdentifier:@"MMDrawer"];
+    //抽屉打开的大小
+    [self.drawerController setMaximumRightDrawerWidth:200.0];
+    
+    [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+    [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeNone];
+    
+    [self.drawerController
+     setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
+         MMDrawerControllerDrawerVisualStateBlock block;
+         block = [[JHDrawerVisualStateManager sharedManager]
+                  drawerVisualStateBlockForDrawerSide:drawerSide];
+         if(block){
+             block(drawerController, drawerSide, percentVisible);
+         }
+     }];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    UIColor * tintColor = [UIColor colorWithRed:29.0/255.0
+                                          green:173.0/255.0
+                                           blue:234.0/255.0
+                                          alpha:1.0];
+    [self.window setTintColor:tintColor];
+    
+    [self.window setRootViewController:self.drawerController];
 
+    return YES;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
     return YES;
 }

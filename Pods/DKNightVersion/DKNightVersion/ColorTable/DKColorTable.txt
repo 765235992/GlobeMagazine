@@ -1,0 +1,12 @@
+NORMAL   NIGHT    RED
+#FFFFFF  #303030  #ffffff 所有背景视图的默认颜色
+#292929  #FFFFFF  #ffffff 所有字体默认颜色
+#A1A1A1  #5C5C5C  #ffffff Cell分割线的默认颜色
+#ffffff  #343434  #fafafa BG
+#aaaaaa  #313131  #aaaaaa SEP
+#0000ff  #ffffff  #fa0000 TINT
+#000000  #ffffff  #000000 TEXT
+#ffffff  #444444  #ffffff BAR
+#292929  #FFFFFF  #ffffff 频道切换未选择字体颜色
+#CD2626  #A52A2A  #ffffff 频道切换已选择字体颜色
+#FFFFFF  #303030  #ffffff 频道切换背景颜色
